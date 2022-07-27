@@ -10,18 +10,26 @@ typedef coordinate coor;
 
 
 int main(){
-	system("color 70");
-	int point = 0;
+	system("color 60");
+	
 	char graph[X][Y];
 	initMap(graph);
+	
 	snake sna;
 	initSnake(graph, sna);
+	
 	createApple(graph);
+	
 	showMap(graph);
 	cout << endl;
+	
+	int point = 0;
 	cout << "YOUR POINT: " << point << endl;
-	char option;
+	
 	int life = 3;
+	cout << "YOUR LIFE: " << life << endl;
+	
+	char option;
 	do{
 		option = getch();
 		system("cls");
@@ -36,6 +44,7 @@ int main(){
 		}else{
 			showMap(graph);
 			cout << "YOUR POINT: " << point << endl;
+			cout << "YOUR LIFE: "  << life;
 		}
 		if(point == 300){
 			cout << "YOU WIN";
