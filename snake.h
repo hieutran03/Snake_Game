@@ -14,13 +14,14 @@ struct snake{
 	}
 };
 void initSnake(char graph[][Y], snake &sna){
-	graph[7][8] = graph[8][8] = 'o';
-	graph[9][8] = '+';
-	sna.head.set(9,8);
+	int x = X/2, y = Y/2;
+	graph[x-1][y] = graph[x][y] = 'o';
+	graph[x+1][y] = '+';
+	sna.head.set(x+1,y);
 	coordinate c;
-	c.set(8,8);
+	c.set(x,y);
 	sna.body.push_back(c);
-	c.set(7,8);
+	c.set(x-1,y);
 	sna.body.push_back(c);
 	
 }
