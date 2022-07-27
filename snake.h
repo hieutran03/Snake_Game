@@ -47,7 +47,7 @@ bool eatApple(char graph[][Y], snake sna){
 	}
 	return 0;
 }
-bool snakeMove(char graph[][Y], snake &sna, char option){
+bool snakeMove(char graph[][Y], snake &sna, char option, int &point){
 	coor prev_head = sna.head;
 	if(option == 'w' || option == 'W'){
 		sna.head.y--;
@@ -70,6 +70,7 @@ bool snakeMove(char graph[][Y], snake &sna, char option){
 	else{
 		prev_head.set_char(graph, 'o');
 		sna.body.insert(sna.body.begin(), prev_head);
+		point++;
 	}
 	sna.head.set_char(graph, '+');
 
