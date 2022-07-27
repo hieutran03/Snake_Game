@@ -13,11 +13,17 @@ void initMap(char graph[][Y]){
 void createApple(char graph[][Y]){
 	int x, y;
 	int minN = 0, maxN = X-1;
+	int seed = 0;
 	while(1){
 		x = minN + rand() % (maxN + 1 - minN);
 		y = minN + rand() % (maxN + 1 - minN);
-		if(graph[x][y] != 'o')
+		if(graph[x][y] == '.')
+		{
+			seed++;
+			srand(seed);
 			break;
+		}
+	
 	}
  	graph[x][y] = 'x';
 }
