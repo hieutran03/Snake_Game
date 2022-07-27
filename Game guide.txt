@@ -1,0 +1,9 @@
+Use 'w' (up), 's' (down), 'a' (left), 'd' (right) to move the snake.
+Try to reach and eat apples to earn points.
+If you try to move to yourself or out of map, you'll lose a life.
+You have only three lifes, so be careful.
+If you think it's so boring, just press 'x' and the game is over.
+
+Have fun, guys!
+-Hieu Tran-
+P/s: It's a stupid game, don't play it >"<
