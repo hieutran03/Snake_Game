@@ -37,7 +37,12 @@ int main(){
 			showMap(graph);
 			cout << "YOUR POINT: " << point << endl;
 		}
+		if(point == 300){
+			cout << "YOU WIN";
+			return 0;
+		}
 		cout << endl;
 	}while(option != 'x'&& life > 0);
-	cout << "<END GAME>";
+	cout << "<END GAME>" << endl;	
+	system("pause");
 }
