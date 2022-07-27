@@ -21,7 +21,7 @@ int main(){
 	char option;
 	int life = 3;
 	do{
-		cin >> option;
+		option = getch();
 		system("cls");
 		
 		if(!snakeMove(graph,sna,option))
@@ -34,6 +34,6 @@ int main(){
 			showMap(graph);
 		}
 		cout << endl;
-	}while(option != 'x'&& life != 0);
+	}while(option != 'x'&& life > 0);
 	cout << "<END GAME>";
 }
