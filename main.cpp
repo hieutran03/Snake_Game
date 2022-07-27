@@ -46,7 +46,7 @@ int main(){
 			cout << "YOUR POINT: " << point << endl;
 			cout << "YOUR LIFE: "  << life;
 		}
-		if(point == 300){
+		if(point == X*Y-3){
 			cout << "YOU WIN";
 			return 0;
 		}
