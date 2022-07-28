@@ -1,5 +1,6 @@
 SNAKE GAME'S GUIDE
 
+Note for Vietnameses: Turn off unikey before playing this game.
 Use 'w' (up), 's' (down), 'a' (left), 'd' (right) to move the snake.
 Try to reach and eat apples to earn points.
 If you try to move to yourself or out of the map, you'll lose a life.
