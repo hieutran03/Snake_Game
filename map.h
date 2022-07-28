@@ -12,11 +12,12 @@ void initMap(char graph[][Y]){
 
 void createApple(char graph[][Y]){
 	int x, y;
-	int minN = 0, maxN = X-1;
+	int min_x = 0, max_x = X-1;
+	int min_y = 0, max_y = Y-1;
 	int seed = 0;
 	while(1){
-		x = minN + rand() % (maxN + 1 - minN);
-		y = minN + rand() % (maxN + 1 - minN);
+		x = min_x + rand() % (max_x + 1 - min_x);
+		y = min_y + rand() % (max_y + 1 - min_y);
 		if(graph[x][y] == '.')
 		{
 			seed++;
