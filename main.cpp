@@ -29,29 +29,33 @@ int main(){
 	int life = 3;
 	cout << "YOUR LIFE: " << life << endl;
 	
+	bool isVictory = 0;
 	char option;
 	do{
 		option = getch();
 		system("cls");
-		
-		if(!snakeMove(graph,sna,option, point))
+		int check_snake_move = snakeMove(graph, sna, option, point);
+		showMap(graph);
+		cout << "YOUR POINT: " << point << endl;
+		if(check_snake_move == 0)
 		{
-			showMap(graph);
-			cout << "YOUR POINT: " << point << endl;
 			life--;
-			cout << "CANT'MOVE" << endl;
-			cout << "YOUR LIFE: "  << life;
-		}else{
-			showMap(graph);
-			cout << "YOUR POINT: " << point << endl;
-			cout << "YOUR LIFE: "  << life;
+			
+			cout << "<CANT'MOVE>" << endl;
+			
 		}
-		if(point == X*Y-3){
-			cout << "YOU WIN";
-			return 0;
+		cout << "YOUR LIFE: "  << life << endl;
+		if(point == X*Y - 3)
+		{
+			isVictory = 1;
+			break;
 		}
 		cout << endl;
 	}while(option != 'x'&& life > 0);
+	if(isVictory){
+		cout << "YOU WIN!" << endl;
+	}else
+		cout << "YOU LOSE" << endl;
 	cout << "<END GAME>" << endl;	
 	system("pause");
 }
