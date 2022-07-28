@@ -15,13 +15,14 @@ struct snake{
 };
 void initSnake(char graph[][Y], snake &sna){
 	int x = X/2, y = Y/2;
-	graph[x-1][y] = graph[x][y] = 'o';
+	graph[x-1][y] = (char)15;
+	graph[x][y] = 'o';
 	graph[x+1][y] = '+';
-	sna.head.set(x+1,y);
+	sna.head.set_coor(x+1,y);
 	coordinate c;
-	c.set(x,y);
+	c.set_coor(x,y);
 	sna.body.push_back(c);
-	c.set(x-1,y);
+	c.set_coor(x-1,y);
 	sna.body.push_back(c);
 	
 }
@@ -32,16 +33,21 @@ void bodyMove(char graph[][Y], coor prev_head, vector<coor> &body){
 			body[i] = body[i-1];
 		}
 		body[0] = prev_head;
-		body[0].set_char(graph, 'o'); 
+		body[0].set_char(graph, 'o');
+		body[body.size()-1].set_char(graph,(char)15); 
  		prev_back.set_char(graph, '.');
 }
 bool checkMove(snake sna, char graph[][Y]){
+	if(sna.head.get_coor() == sna.back().get_coor())
+		return 1;
 	if(sna.head.get_char(graph) == 'o' || sna.head.x<0 || sna.head.x >= X || sna.head.y < 0 || sna.head.y >= Y){
 		return 0;
 	}
 	return 1;
 }
-bool eatApple(char graph[][Y], snake sna){
+bool eatApple(char graph[][Y], snake sna, int point){
+	if(point >= X*Y-4 && sna.head.get_char(graph) == 'x')
+		return 1;
 	if(sna.head.get_char(graph) == 'x'){
 		createApple(graph);
 		return 1;
@@ -66,14 +72,16 @@ bool snakeMove(char graph[][Y], snake &sna, char option, int &point){
 		return 0;
 	}
 	
-	if(!eatApple(graph, sna))
+	int check_eat_apple = eatApple(graph, sna, point);
+	if(check_eat_apple == 0)
 		bodyMove(graph, prev_head, sna.body);
-	else{
+	else if(check_eat_apple == 1){
 		prev_head.set_char(graph, 'o');
 		sna.body.insert(sna.body.begin(), prev_head);
-		point++;
+		point++;	
 	}
 	sna.head.set_char(graph, '+');
+	
 
 	return 1;
 }
