@@ -2,10 +2,12 @@ SNAKE GAME'S GUIDE
 
 Use 'w' (up), 's' (down), 'a' (left), 'd' (right) to move the snake.
 Try to reach and eat apples to earn points.
-If you try to move to yourself or out of map, you'll lose a life.
+If you try to move to yourself or out of the map, you'll lose a life.
 You have only three lifes, so be careful.
-You win the when the snake fills the map up.
-If you think it's so boring, just press 'x' and the game is over.
+You win the game when the snake fills the map up.
+This game doesn't have any levels, but you can fix the height and width 
+of the map by changing the values of X and Y in the "common.h" file.
+If you think it's so boring, just press 'x', and the game is over.
 
 Have fun, guys!
 -Hieu Tran-
