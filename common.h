@@ -5,7 +5,7 @@
 #include <math.h>
 #include<conio.h>
 #include<stdlib.h>
-#define X 20
-#define Y 20
+#define X 5
+#define Y 5
 using namespace std;
 #endif
