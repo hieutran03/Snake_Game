@@ -45,7 +45,7 @@ bool checkMove(snake sna, char graph[][Y]){
 	}
 	return 1;
 }
-bool eatApple(char graph[][Y], snake sna, int point){
+bool isAteApple(char graph[][Y], snake sna, int point){
 	if(point >= X*Y-4 && sna.head.get_char(graph) == 'x')
 		return 1;
 	if(sna.head.get_char(graph) == 'x'){
@@ -56,26 +56,31 @@ bool eatApple(char graph[][Y], snake sna, int point){
 }
 bool snakeMove(char graph[][Y], snake &sna, char option, int &point){
 	coor prev_head = sna.head;
-	if(option == 'w' || option == 'W'){
+	if(option == 72){
 		sna.head.y--;
-	}else if (option == 's'|| option == 'S'){
+	}else if (option == 80){
 		sna.head.y++;
-	}else if(option == 'a'|| option == 'A'){
+	}else if(option == 75){
 		sna.head.x--;
-	}else if(option == 'd'|| option == 'D'){
+	}else if(option == 77){
 		sna.head.x++;
 	}else{
 		return 1;
 	}
+	if(sna.head.get_coor() == sna.top().get_coor()){
+		sna.head = prev_head;
+		return 1;
+	}
+	
 	if(!checkMove(sna, graph)){
 		sna.head = prev_head;
 		return 0;
 	}
 	
-	int check_eat_apple = eatApple(graph, sna, point);
-	if(check_eat_apple == 0)
+	int check_is_ate_apple = isAteApple(graph, sna, point);
+	if(check_is_ate_apple == 0)
 		bodyMove(graph, prev_head, sna.body);
-	else if(check_eat_apple == 1){
+	else if(check_is_ate_apple == 1){
 		prev_head.set_char(graph, 'o');
 		sna.body.insert(sna.body.begin(), prev_head);
 		point++;	
