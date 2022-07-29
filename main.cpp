@@ -4,58 +4,68 @@
 #include "map.h"
 using namespace std;
 
-
+#define DELAY 20
 
 typedef coordinate coor;
 
 
-int main(){
+int main() {
 	system("color 60");
-	
-	char graph[X][Y];
-	initMap(graph);
-	
-	snake sna;
-	initSnake(graph, sna);
-	
-	createApple(graph);
-	
-	showMap(graph);
-	cout << endl;
-	
+
 	int point = 0;
 	cout << "YOUR POINT: " << point << endl;
-	
+
 	int life = 3;
 	cout << "YOUR LIFE: " << life << endl;
-	
+
+	char graph[X][Y];
+	initMap(graph);
+
+	snake sna;
+	initSnake(graph, sna);
+
+	createApple(graph);
+
+	showMap(graph);
+	cout << endl;
+
+
+
 	bool isVictory = 0;
-	char option;
-	do{
-		option = getch();
+	char option = 1;
+	do {
+
+		if (_kbhit())
+			option = _getch();
 		system("cls");
+		cout << "YOUR POINT: " << point << endl;
+		cout << "YOUR LIFE: " << life << endl;
 		int check_snake_move = snakeMove(graph, sna, option, point);
 		showMap(graph);
-		cout << "YOUR POINT: " << point << endl;
-		if(check_snake_move == 0)
+
+		wait(DELAY);
+		if (check_snake_move == 0)
 		{
 			life--;
-			
-			cout << "<CANT'MOVE>" << endl;
-			
 		}
-		cout << "YOUR LIFE: "  << life << endl;
-		if(point == X*Y - 3)
+		if (point == X * Y - 3)
 		{
 			isVictory = 1;
 			break;
 		}
 		cout << endl;
-	}while(option != 'x'&& life > 0);
-	if(isVictory){
+	} while (option != 'x' && life > 0);
+
+	system("cls");
+	cout << "YOUR POINT: " << point << endl;
+	cout << "YOUR LIFE: " << life << endl;
+	showMap(graph);
+
+	if (isVictory) {
 		cout << "YOU WIN!" << endl;
-	}else
+	}
+	else
 		cout << "YOU LOSE" << endl;
-	cout << "<END GAME>" << endl;	
+	cout << "<END GAME>" << endl;
 	system("pause");
 }
