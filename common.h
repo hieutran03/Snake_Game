@@ -3,9 +3,18 @@
 #include <vector>
 #include <iostream>
 #include <math.h>
-#include<conio.h>
-#include<stdlib.h>
-#define X 5
-#define Y 5
+#include <conio.h>
+#include <stdlib.h>
+
+#include <time.h>
+
+#define X 10
+#define Y 10
 using namespace std;
+void wait(int factor)
+{
+	clock_t ew;
+	ew = clock() +  CLOCKS_PER_SEC*factor/100;
+	while (clock() < ew) {}
+}
 #endif
