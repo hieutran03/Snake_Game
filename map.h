@@ -1,7 +1,6 @@
 #ifndef map_H
 #define map_H
 #include"common.h"
-#include"math.h"
 // map
 
 void initMap(char graph[][Y]){
