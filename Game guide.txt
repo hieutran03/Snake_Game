@@ -7,7 +7,7 @@ You have only three lifes, so be careful.
 You win the game when the snake fills the map up.
 This game doesn't have any levels, but you can fix the width and height of the map by changing the values  
 of 'X' and 'Y'(X>5, Y>3) in the "common.h" file.
-You also change the snake's speed by changing the 'factor'. The higher value, the slower snake's speed.
+You also change the snake's speed by changing the 'DELAY'. The higher value, the slower snake's speed.
 If you think it's so boring, just press 'x', and the game is over.
 
 Have fun, guys!
