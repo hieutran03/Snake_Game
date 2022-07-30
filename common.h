@@ -10,6 +10,9 @@
 
 #define X 10
 #define Y 10
+
+#define DELAY 20
+
 using namespace std;
 void wait(int factor)
 {
