@@ -4,7 +4,6 @@
 #include "map.h"
 using namespace std;
 
-#define DELAY 20
 
 typedef coordinate coor;
 
